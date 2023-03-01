@@ -128,11 +128,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="MoveT.cpp" />
     <ClCompile Include="NatureT.cpp" />
     <ClCompile Include="PokemonT.cpp" />
     <ClCompile Include="TypeT.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="MoveT.h" />
     <ClInclude Include="NatureT.h" />
     <ClInclude Include="PokemonT.h" />
     <ClInclude Include="TypeT.h" />
