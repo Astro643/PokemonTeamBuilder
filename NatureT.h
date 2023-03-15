@@ -1,7 +1,7 @@
 /**
 *Astro643
 *PokemonTeamBuilder (PTB) :: NatureT.h
-*v0.1.1
+*v0.2.1
 *02.22.23
 **/
 
@@ -16,3 +16,8 @@ enum class NatureT{NA, HARDY, LONELY, BRAVE, ADAMANT, NAUGHTY, BOLD, DOCILE, REL
 //enum functions
 NatureT StringToNatureT(std::string input);
 std::string NatureTToString(NatureT input);
+double NaturePercentAtk(NatureT nature);
+double NaturePercentDef(NatureT nature);
+double NaturePercentSAtk(NatureT nature);
+double NaturePercentSDef(NatureT nature);
+double NaturePercentSpd(NatureT nature);

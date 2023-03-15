@@ -1,7 +1,7 @@
 /**
 *Astro643
 *PokemonTeamBuilder (PTB) :: TypeT.h
-*v0.1
+*v0.1.1
 *02.22.23
 **/
 

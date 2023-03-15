@@ -1,7 +1,7 @@
 /**
 *Astro643
 *PokemonTeamBuilder (PTB) :: NatureT.cpp
-*v0.1.1
+*v0.2
 *02.22.23
 **/
 
@@ -13,8 +13,8 @@ using namespace std;
 //enum functions
 NatureT StringToNatureT(string input){
 	//variables
-	NatureT result;
-	string up_input;
+	NatureT result = NatureT::NA;
+	string up_input = "";
 
 	//set to uppercase
 	for (int x = 0; x < input.size(); x++) {
@@ -26,7 +26,7 @@ NatureT StringToNatureT(string input){
 		result = NatureT::HARDY;
 	}else if(up_input == "LONELY"){
 		result = NatureT::LONELY;
-	}else if (up_input == "BRAVE") {
+	}else if(up_input == "BRAVE"){
 		result = NatureT::BRAVE;
 	}else if(up_input == "ADAMANT"){
 		result = NatureT::ADAMANT;
@@ -82,7 +82,7 @@ NatureT StringToNatureT(string input){
 
 string NatureTToString(NatureT input){
 	//variables
-	string result;
+	string result = "";
 
 	//check if input matches a nature
 	switch (input){
@@ -165,4 +165,458 @@ string NatureTToString(NatureT input){
 			//sets as default value if a nature is not found
 			result = "NA";
 	}
+
+	//exit
+	return result;
+}
+
+/**
+*checks which nature and assignes a double value to each stat
+*0.9 - debuf
+*1.0 - neutral
+*1.1 - buff
+**/
+double NaturePercentAtk(NatureT nature){
+	//variables
+	double percent = 0.0;
+
+	//finds which nature, sets stats accordingly
+	switch(nature){
+		case NatureT::HARDY:
+			percent = 1.0;
+			break;
+		case NatureT::LONELY:
+			percent = 1.1;
+			break;
+		case NatureT::BRAVE:
+			percent = 1.1;
+			break;
+		case NatureT::ADAMANT:
+			percent = 1.1;
+			break;
+		case NatureT::NAUGHTY:
+			percent = 1.1;
+			break;
+		case NatureT::BOLD:
+			percent = 0.9;
+			break;
+		case NatureT::DOCILE:
+			percent = 1.0;
+			break;
+		case NatureT::RELAXED:
+			percent = 1.0;
+			break;
+		case NatureT::IMPISH:
+			percent = 1.0;
+			break;
+		case NatureT::LAX:
+			percent = 1.0;
+			break;
+		case NatureT::TIMID:
+			percent = 0.9;
+			break;
+		case NatureT::HASTY:
+			percent = 1.0;
+			break;
+		case NatureT::SERIOUS:
+			percent = 1.0;
+			break;
+		case NatureT::JOLLY:
+			percent = 1.0;
+			break;
+		case NatureT::NAIVE:
+			percent = 1.0;
+			break;
+		case NatureT::MODEST:
+			percent = 0.9;
+			break;
+		case NatureT::MILD:
+			percent = 1.0;
+			break;
+		case NatureT::QUIET:
+			percent = 1.0;
+			break;
+		case NatureT::BASHFUL:
+			percent = 1.0;
+			break;
+		case NatureT::RASH:
+			percent = 1.0;
+			break;
+		case NatureT::CALM:
+			percent = 0.9;
+			break;
+		case NatureT::GENTLE:
+			percent = 1.0;
+			break;
+		case NatureT::SASSY:
+			percent = 1.0;
+			break;
+		case NatureT::CAREFUL:
+			percent = 1.0;
+			break;
+		case NatureT::QUIRKY:
+			percent = 1.0;
+			break;
+		default:
+			percent = 1.0;
+	}
+
+	//exit
+	return percent;
+}
+
+double NaturePercentDef(NatureT nature) {
+	//variables
+	double percent = 0.0;
+
+	//finds which nature, sets stats accordingly
+	switch (nature) {
+	case NatureT::HARDY:
+		percent = 1.0;
+		break;
+	case NatureT::LONELY:
+		percent = 0.9;
+		break;
+	case NatureT::BRAVE:
+		percent = 1.0;
+		break;
+	case NatureT::ADAMANT:
+		percent = 1.0;
+		break;
+	case NatureT::NAUGHTY:
+		percent = 1.0;
+		break;
+	case NatureT::BOLD:
+		percent = 1.1;
+		break;
+	case NatureT::DOCILE:
+		percent = 1.0;
+		break;
+	case NatureT::RELAXED:
+		percent = 1.1;
+		break;
+	case NatureT::IMPISH:
+		percent = 1.1;
+		break;
+	case NatureT::LAX:
+		percent = 1.1;
+		break;
+	case NatureT::TIMID:
+		percent = 1.0;
+		break;
+	case NatureT::HASTY:
+		percent = 0.9;
+		break;
+	case NatureT::SERIOUS:
+		percent = 1.0;
+		break;
+	case NatureT::JOLLY:
+		percent = 1.0;
+		break;
+	case NatureT::NAIVE:
+		percent = 1.0;
+		break;
+	case NatureT::MODEST:
+		percent = 1.0;
+		break;
+	case NatureT::MILD:
+		percent = 0.9;
+		break;
+	case NatureT::QUIET:
+		percent = 1.0;
+		break;
+	case NatureT::BASHFUL:
+		percent = 1.0;
+		break;
+	case NatureT::RASH:
+		percent = 1.0;
+		break;
+	case NatureT::CALM:
+		percent = 1.0;
+		break;
+	case NatureT::GENTLE:
+		percent = 0.9;
+		break;
+	case NatureT::SASSY:
+		percent = 1.0;
+		break;
+	case NatureT::CAREFUL:
+		percent = 1.0;
+		break;
+	case NatureT::QUIRKY:
+		percent = 1.0;
+		break;
+	default:
+		percent = 1.0;
+	}
+
+	//exit
+	return percent;
+}
+
+double NaturePercentSAtk(NatureT nature) {
+	//variables
+	double percent = 0.0;
+
+	//finds which nature, sets stats accordingly
+	switch (nature) {
+	case NatureT::HARDY:
+		percent = 1.0;
+		break;
+	case NatureT::LONELY:
+		percent = 1.0;
+		break;
+	case NatureT::BRAVE:
+		percent = 1.0;
+		break;
+	case NatureT::ADAMANT:
+		percent = 0.9;
+		break;
+	case NatureT::NAUGHTY:
+		percent = 1.0;
+		break;
+	case NatureT::BOLD:
+		percent = 1.0;
+		break;
+	case NatureT::DOCILE:
+		percent = 1.0;
+		break;
+	case NatureT::RELAXED:
+		percent = 1.0;
+		break;
+	case NatureT::IMPISH:
+		percent = 0.9;
+		break;
+	case NatureT::LAX:
+		percent = 1.0;
+		break;
+	case NatureT::TIMID:
+		percent = 1.0;
+		break;
+	case NatureT::HASTY:
+		percent = 1.0;
+		break;
+	case NatureT::SERIOUS:
+		percent = 1.0;
+		break;
+	case NatureT::JOLLY:
+		percent = 0.9;
+		break;
+	case NatureT::NAIVE:
+		percent = 1.0;
+		break;
+	case NatureT::MODEST:
+		percent = 1.1;
+		break;
+	case NatureT::MILD:
+		percent = 1.1;
+		break;
+	case NatureT::QUIET:
+		percent = 1.1;
+		break;
+	case NatureT::BASHFUL:
+		percent = 1.0;
+		break;
+	case NatureT::RASH:
+		percent = 1.1;
+		break;
+	case NatureT::CALM:
+		percent = 1.0;
+		break;
+	case NatureT::GENTLE:
+		percent = 1.0;
+		break;
+	case NatureT::SASSY:
+		percent = 1.0;
+		break;
+	case NatureT::CAREFUL:
+		percent = 0.9;
+		break;
+	case NatureT::QUIRKY:
+		percent = 1.0;
+		break;
+	default:
+		percent = 1.0;
+	}
+
+	//exit
+	return percent;
+}
+
+double NaturePercentSDef(NatureT nature) {
+	//variables
+	double percent = 0.0;
+
+	//finds which nature, sets stats accordingly
+	switch (nature) {
+	case NatureT::HARDY:
+		percent = 1.0;
+		break;
+	case NatureT::LONELY:
+		percent = 1.0;
+		break;
+	case NatureT::BRAVE:
+		percent = 1.0;
+		break;
+	case NatureT::ADAMANT:
+		percent = 1.0;
+		break;
+	case NatureT::NAUGHTY:
+		percent = 0.9;
+		break;
+	case NatureT::BOLD:
+		percent = 1.0;
+		break;
+	case NatureT::DOCILE:
+		percent = 1.0;
+		break;
+	case NatureT::RELAXED:
+		percent = 1.0;
+		break;
+	case NatureT::IMPISH:
+		percent = 1.0;
+		break;
+	case NatureT::LAX:
+		percent = 0.9;
+		break;
+	case NatureT::TIMID:
+		percent = 1.0;
+		break;
+	case NatureT::HASTY:
+		percent = 1.0;
+		break;
+	case NatureT::SERIOUS:
+		percent = 1.0;
+		break;
+	case NatureT::JOLLY:
+		percent = 1.0;
+		break;
+	case NatureT::NAIVE:
+		percent = 0.9;
+		break;
+	case NatureT::MODEST:
+		percent = 1.0;
+		break;
+	case NatureT::MILD:
+		percent = 1.0;
+		break;
+	case NatureT::QUIET:
+		percent = 1.0;
+		break;
+	case NatureT::BASHFUL:
+		percent = 1.0;
+		break;
+	case NatureT::RASH:
+		percent = 0.9;
+		break;
+	case NatureT::CALM:
+		percent = 1.1;
+		break;
+	case NatureT::GENTLE:
+		percent = 1.1;
+		break;
+	case NatureT::SASSY:
+		percent = 1.1;
+		break;
+	case NatureT::CAREFUL:
+		percent = 1.1;
+		break;
+	case NatureT::QUIRKY:
+		percent = 1.0;
+		break;
+	default:
+		percent = 1.0;
+	}
+
+	//exit
+	return percent;
+}
+
+double NaturePercentSpd(NatureT nature) {
+	//variables
+	double percent = 0.0;
+
+	//finds which nature, sets stats accordingly
+	switch (nature) {
+	case NatureT::HARDY:
+		percent = 1.0;
+		break;
+	case NatureT::LONELY:
+		percent = 1.0;
+		break;
+	case NatureT::BRAVE:
+		percent = 0.9;
+		break;
+	case NatureT::ADAMANT:
+		percent = 1.0;
+		break;
+	case NatureT::NAUGHTY:
+		percent = 1.0;
+		break;
+	case NatureT::BOLD:
+		percent = 1.0;
+		break;
+	case NatureT::DOCILE:
+		percent = 1.0;
+		break;
+	case NatureT::RELAXED:
+		percent = 0.9;
+		break;
+	case NatureT::IMPISH:
+		percent = 1.0;
+		break;
+	case NatureT::LAX:
+		percent = 1.0;
+		break;
+	case NatureT::TIMID:
+		percent = 1.1;
+		break;
+	case NatureT::HASTY:
+		percent = 1.1;
+		break;
+	case NatureT::SERIOUS:
+		percent = 1.0;
+		break;
+	case NatureT::JOLLY:
+		percent = 1.1;
+		break;
+	case NatureT::NAIVE:
+		percent = 1.1;
+		break;
+	case NatureT::MODEST:
+		percent = 1.0;
+		break;
+	case NatureT::MILD:
+		percent = 1.0;
+		break;
+	case NatureT::QUIET:
+		percent = 0.9;
+		break;
+	case NatureT::BASHFUL:
+		percent = 1.0;
+		break;
+	case NatureT::RASH:
+		percent = 1.0;
+		break;
+	case NatureT::CALM:
+		percent = 1.0;
+		break;
+	case NatureT::GENTLE:
+		percent = 1.0;
+		break;
+	case NatureT::SASSY:
+		percent = 0.9;
+		break;
+	case NatureT::CAREFUL:
+		percent = 1.0;
+		break;
+	case NatureT::QUIRKY:
+		percent = 1.0;
+		break;
+	default:
+		percent = 1.0;
+	}
+
+	//exit
+	return percent;
 }

@@ -1,7 +1,7 @@
 /**
 *Astro643
 *PokemonTeamBuilder :: TypeT.cpp
-*v0.1
+*v0.1.2
 *02.22.23
 **/
 
@@ -13,8 +13,8 @@ using namespace std;
 //enum functions
 TypeT StringToTypeT(string input){
 	//variables
-	TypeT result;
-	string up_input;
+	TypeT result = TypeT::NA;
+	string up_input = "";
 
 	//set to uppercase
 	for (int x = 0; x < input.size(); x++){
@@ -69,7 +69,7 @@ TypeT StringToTypeT(string input){
 
 string TypeTToString(TypeT input){
 	//variables
-	string result;
+	string result = "";
 
 	//check if input matches a type
 	switch(input){
